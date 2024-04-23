@@ -84,48 +84,24 @@ public class PlayerManagerAnimated : MonoBehaviour
 
     // Fonction qui se lance à chaque frame.
     void Update() {
-		
-		//On récupère si les touches de directions horizontales et verticales sont pressées, cela donne un nombre entre 0 (pas pressé) et 1 (pressé).
-        movement.x = Input.GetAxisRaw("Horizontal");
-		movement.y = Input.GetAxisRaw("Vertical");
-		
-		if(movement != Vector2.zero){ //Si le joueur bouge, on partage les variables à l'animator pour qu'il bouge le sprite en conséquence
-			animator.SetFloat("moveX", movement.x);
-			animator.SetFloat("moveY", movement.y);
-			animator.SetBool("moving", true);
-		} else {
-			animator.SetBool("moving", false);
-		}
 
-		//Si la valeur récupérée est supérieure à 0, ça veut dire que la touche est pressée.
-		bool isMovingHorizontal = Mathf.Abs(movement.x) > 0;
-		bool isMovingVertical = Mathf.Abs(movement.y) > 0;
+	    // Get the input from the user
+	    movement.x = Input.GetAxisRaw("Horizontal");
+	    movement.y = Input.GetAxisRaw("Vertical");
 
-		//On évite que le joueur bouge horizontalement ET verticalement.
-		if (Mathf.Abs(movement.x) > 0)
-        {
-            isMovingHorizontal = true;
-            isMovingVertical = false;
-        }
+	    // If the player is moving, update the animator parameters
+	    if(movement != Vector2.zero){
+		    animator.SetFloat("moveX", movement.x);
+		    animator.SetFloat("moveY", movement.y);
+		    animator.SetBool("moving", true);
+	    } else {
+		    animator.SetBool("moving", false);
+	    }
 
-		//S'il se déplace verticalement, la priorité est au déplacement vertical
-        if (Mathf.Abs(movement.y) > 0)
-        {
-            isMovingHorizontal = false;
-            isMovingVertical = true;
-        }
+	    // Normalize the movement vector to ensure consistent speed in all directions
+	    movement.Normalize();
 
-		//On définit le vecteur de mouvement en fonction des données précédentes.
-        if (isMovingHorizontal)
-        {
-            movement = Vector2.right * movement.normalized.x;
-        }
-        else if (isMovingVertical)
-        {
-            movement = Vector2.up * movement.normalized.y;
-        }
-		
-		QuitGame();
+	    QuitGame();
     }
 
 	void FixedUpdate() {
@@ -145,7 +121,7 @@ public class PlayerManagerAnimated : MonoBehaviour
 		//Si freeze vaut 0, le personnage n'est pas gelé. On le déplace via son rigidbody d'une valeur égale à sa position + le vecteur mouvement défini dans Update * la vitesse moveSpeed * le laps de temps écoulé Time.fixedDeltaTime)
 		else
 		{
-			_rb.MovePosition(_rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+			_rb.MovePosition(_rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
 		}
 
 	}
