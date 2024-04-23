@@ -16,7 +16,7 @@ public class VerticalMove : MonoBehaviour
 
 	//A chaque frame, on bouge l'objet via son rigidbody dans le mouvement défini * la vitesse de l'objet moveSpeed * Time.fixedDeltaTime le laps de temps écoulé en 1 frame
 	void FixedUpdate() {
-		rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+		rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
