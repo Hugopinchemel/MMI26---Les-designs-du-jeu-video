@@ -1,0 +1,4 @@
+{
+    "dotnet.preferCSharpExtension": true,
+    "dotnet.defaultSolution": "MMI26---Les-designs-du-jeu-video.sln"
+}
