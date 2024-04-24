@@ -130,9 +130,8 @@ public class PlayerManagerAnimated : MonoBehaviour
 			freeze = Mathf.Max(0, freeze - Time.fixedDeltaTime);
 		}
 		//Si freeze vaut 0, le personnage n'est pas gelé. On le déplace via son rigidbody d'une valeur égale à sa position + le vecteur mouvement défini dans Update * la vitesse moveSpeed * le laps de temps écoulé Time.fixedDeltaTime)
-		else
-		{
-			_rb.MovePosition(_rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
+		if(freeze == 0){
+			_rb.MovePosition(_rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 		}
 
 	}

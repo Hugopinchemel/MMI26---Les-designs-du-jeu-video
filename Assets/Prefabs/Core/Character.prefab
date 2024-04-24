@@ -173,5 +173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hud: {fileID: 0}
   audioManager: {fileID: 0}
+  hasKey: 0
   _moveSpeed: 5
   _rb: {fileID: 1983306072620503304}
