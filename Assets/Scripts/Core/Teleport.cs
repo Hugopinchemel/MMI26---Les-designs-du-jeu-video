@@ -26,7 +26,7 @@ public class Teleport : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             // Récupère le PlayerManager du joueur pour le téléporter
-            PlayerManager playerManager = col.gameObject.GetComponent<PlayerManager>();
+            PlayerManagerAnimated playerManager = col.gameObject.GetComponent<PlayerManagerAnimated>();
             if (playerManager != null)
             {
                 // Téléporte le joueur à la position spécifiée
