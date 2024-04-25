@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AnimatedSpritesTest.unity
     guid: cce1e654cbe2e7a41922c22cf075c342
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 3937acc647513fd439a9607a01e8fcf1
+  - enabled: 1
+    path: Assets/Scenes/SceneEditHugo.unity
+    guid: 9c5a8efc82d1f21499d642fa9567db46
   m_configObjects: {}
