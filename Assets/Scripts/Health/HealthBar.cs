@@ -12,6 +12,7 @@ public class HealthBar : MonoBehaviour
  
  public void SetHealth(int health)
  {
+     Debug.Log(health);
      slider.value = health;
  }
 }
