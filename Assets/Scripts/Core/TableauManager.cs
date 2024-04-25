@@ -36,6 +36,7 @@ public class TableauManager : MonoBehaviour
 		for (int i = 0; i < children; ++i){
 			tableaux[i] = transform.GetChild(i).gameObject;
 			
+			/*
 			//On fait en sorte que le téléporteur gauche du niveau redirige vers le niveau précédent (ne marche pas si une salle a plusieurs téléporteurs)
 			GameObject teleporterLeft = tableaux[i].GetComponent<Tableau>().GetTeleporterLeft();
 			if(teleporterLeft != null){
@@ -48,6 +49,7 @@ public class TableauManager : MonoBehaviour
 				teleporterRight.GetComponent<Teleport>().SetNumTableau(i+1);
 				teleporterRight.GetComponent<Teleport>().SetPosition(-7.5f,0);
 			}
+			*/
 			
 			//Met tous les tableaux désactivés
 			tableaux[i].SetActive(false);

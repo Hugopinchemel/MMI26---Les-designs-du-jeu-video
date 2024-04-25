@@ -94,8 +94,19 @@ public class PlayerManagerAnimated : MonoBehaviour
 		    animator.SetFloat("moveX", movement.x);
 		    animator.SetFloat("moveY", movement.y);
 		    animator.SetBool("moving", true);
+
+		    // If the player is moving downwards, trigger the "walkDown" animation
+		    if (movement.y < 0)
+		    {
+			    animator.SetBool("walkDown", true);
+		    }
+		    else
+		    {
+			    animator.SetBool("walkDown", false);
+		    }
 	    } else {
 		    animator.SetBool("moving", false);
+		    animator.SetBool("walkDown", false);
 	    }
 
 	    // Normalize the movement vector to ensure consistent speed in all directions
