@@ -12,10 +12,7 @@ namespace Graphics.traps.firetrap
 
         void Start()
         {
-            animation = GetComponent<Animation>();
-            animation.AddClip(fireAnim, "fire");
-            animation.AddClip(fireDangerousAnim, "fireDangerous");
-            animation.AddClip(fire2Anim, "fire2");
+
         }
 
     }
