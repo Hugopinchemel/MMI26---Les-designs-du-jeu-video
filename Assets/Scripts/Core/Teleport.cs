@@ -25,8 +25,9 @@ public class Teleport : MonoBehaviour
         // Vérifie si le joueur entre en collision avec le téléporteur
         if (col.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Teleporteur");
             // Récupère le PlayerManager du joueur pour le téléporter
-            PlayerManager playerManager = col.gameObject.GetComponent<PlayerManager>();
+            PlayerManagerAnimated playerManager = col.gameObject.GetComponent<PlayerManagerAnimated>();
             if (playerManager != null)
             {
                 // Téléporte le joueur à la position spécifiée
